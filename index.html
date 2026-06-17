@@ -12,50 +12,89 @@
 <body>
   <main>
     <div class="overlay">
-      <div class="signup-page">
-        <div class="signup-page-left">
-          <form>
+      <div id="signup-page">
+        <div id="signup-page-left">
+          <form id="signup-form">
             <div class="profile">
               <input type="file" id="profile-pic" />
               <label for="profile-pic" class="upload-btn">Upload Profile Pic</label>
+              <small class="pfp-error">Upload Profile Picture</small>
             </div>
             <div class="info">
-              <label>Full Name :</label>
-              <input type="text" placeholder="Enter Your Name">
+              <label for="fullname">Full Name :</label>
+              <input type="text" id="fullname" placeholder="Enter Your Name">
+            </div>
+            <div class="errors">
+              <small class="error info-error name-required-error">Full name is required.</small>
+              <small class="error condition-error name-condition-error">Name must be at least 2 characters long.</small>
+              <small class="error verify name-verify">Only Letters Allowed.</small>
             </div>
 
-            <div class="info"><label>Email :</label>
-              <input type="email" placeholder="Enter Your Email" />
+            <div class="info">
+              <label for="Email">Email :</label>
+              <input type="email" id="Email" placeholder="Enter Your Email" />
+            </div>
+            <div class="errors">
+              <small class="error info-error email-required-error">Email address is required.</small>
+              <small class="error condition-error email-condition-error">Space Not Allowed.</small>
+              <small class="error verify email-verify">Please enter a valid email address.</small>
+            </div>
+            
+            <div class="info">
+              <label for="password">Password :</label>
+              <input type="password" id="password" placeholder="Enter Your Password" />
+            </div>
+            <div class="errors">
+              <small class="error info-error password-required-error">Password is required.</small>
+              <small class="error condition-error password-condition-error">Password must be at least 8 characters long.</small>
+              <small class="error verify password-verify">Please enter a valid password.</small>
             </div>
 
-            <div class="info"> <label>Password :</label>
-              <input type="password" placeholder="Enter Your Password" />
+            <div class="info"> 
+              <label for="confirm-password">Confirm Password :</label>
+              <input type="password" id="confirm-password" placeholder="Confirm Your Password" />
+            </div>
+            <div class="errors">
+              <small class="error info-error confirm-pass-required-error">Please confirm your password.</small>
+              <small class="error condition-error confirm-password-condition-error">Passwords do not match.</small>
             </div>
 
-            <div class="info"> <label>Confirm Password :</label>
-              <input type="password" placeholder="Confirm Your Password" />
-            </div>
+            <!-- <small class="error successful-message">Profile created successfully!</small> -->
+            <button type="submit" id="signup-btn">Create Profile</button>
 
-            <button type="submit" class="signup-btn">Create Profile</button>
           </form>
         </div>
-        <div class="signup-page-right">
+        <div id="signup-page-right">
         </div>
       </div>
 
-      <div class="login-page">
-        <div class="login-page-left"></div>
-        <div class="login-page-right">
-          <form>
-            <div class="info"><label>Email :</label>
-              <input type="email" placeholder="Enter Your Email" />
+
+      <!-- signup page done  -->
+
+      <div id="login-page">
+        <div id="login-page-left"></div>
+        <div id="login-page-right">
+          <form id="login-form">
+            <div class="info"><label for="loginEmail">Email :</label>
+              <input type="email" id="loginEmail" placeholder="Enter Your Email" />
+            </div>
+            <div class="errors">
+              <small class="login-error login-required-error">Email address is required.</small>
+              <small class="login-error valid-condition-error">Please enter a valid email address.</small>
+              <small class="login-error both-condition-error">Invalid email or password.</small>
+
             </div>
 
-            <div class="info"> <label>Password :</label>
-              <input type="password" placeholder="Enter Your Password" />
+            <div class="info"> <label for="loginPassword">Password :</label>
+              <input type="password" id="loginPassword" placeholder="Enter Your Password" />
+            </div>
+            <div class="errors">
+              <small class="login-error login-required-error">Password is required.</small>
+              <small class="login-error valid-condition-error">Invalid Password.</small>
+              <small class="login-error both-condition-error">Invalid email or password.</small>
             </div>
 
-            <button type="submit" class="login-btn">Login</button>
+            <button type="submit" id="login-btn">Login</button>
           </form>
         </div>
       </div>
@@ -64,12 +103,12 @@
 
 
 
-    
+
 
     <nav>
       <img src="assets/Shery-managment-logo.png" alt="" />
       <div class="user-profile">
-        <h3>How It's Works</h3>
+        <!-- <h3>How It's Works</h3> -->
 
         <!-- <button id="login">
             <div class="btn-text-wrap">

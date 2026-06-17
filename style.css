@@ -27,21 +27,21 @@ main {
     /* display: none; */
 }
 
-.signup-page {
+#signup-page {
     border-radius: 10px;
-    width: 60%;
-    height: 80%;
+    width: 70%;
+    height: 95%;
     padding: 2% 5%;
     display: flex;
     /* flex-direction: column; */
     align-items: center;
     background: linear-gradient(to right, #affde4, #affde4, #ffffff);
-    display: none;
+    /* display: none; */
 }
 
-.signup-page-left {
-    width: 50%;
-    height: 70vh;
+#signup-page-left {
+    width: 60%;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,46 +56,51 @@ main {
     /* background-color: yellow; */
 }
 
-.signup-page form {
-    width: 80%;
-    height: 70vh;
+#signup-page form {
+    width: 100%;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    /* gap: 5px; */
     /* background-color: yellowgreen; */
 }
 
-.signup-page-left .info {
+#signup-page-left .info {
     font-family: Arial, Helvetica, sans-serif;
     /* background-color: #2D4BFF; */
     margin-top: 20px;
+    padding: 0 17% 0 10%;
     width: 100%;
     display: flex;
     align-items: center;
     font-weight: bold;
-    font-size: 1.2vw;
+    font-size: 1vw;
     justify-content: space-between;
 }
 
-.signup-page-left .info input {
+#signup-page-left .info input {
     border: none;
-    padding: 3% 2%;
+    padding: 1.5% 2%;
     font-size: 0.9vw;
     border-radius: 7px;
 }
 
-.signup-page-left .info input:focus {
+#signup-page-left .info input:focus {
     outline: none;
     border: 1px solid #2d4bff;
 }
 
-.signup-page-left .profile {
+#signup-page-left .profile {
+    /* background-color: yellow; */
     width: fit-content;
-    height: 25vh;
-    border-radius: 5%;
+    height: 20vh;
+    padding: 10px;
+    border-radius: 7%;
     /* background-color: yellow; */
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
 }
@@ -108,19 +113,20 @@ main {
     border: 1px solid #2d4bff;
     font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
-    padding: 65px 10px;
+    padding: 45px 10px;
     background: #a4f1e9;
-    border-radius: 5%;
+    border-radius: 7%;
     cursor: pointer;
     font-weight: 600;
 }
 
-.signup-btn {
-    position: absolute;
-    bottom: 5%;
+#signup-btn {
+    /* position: absolute; */
+    /* bottom: 3%; */
+    margin-top: 4%;
     background: linear-gradient(to bottom right, #affde4, #ffffff, #affde4);
     border: 1px solid #2d4bff;
-    padding: 2% 3%;
+    padding: 2% 7%;
     font-size: 1vw;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -128,9 +134,9 @@ main {
     cursor: pointer;
 }
 
-.signup-page-right {
-    width: 50%;
-    height: 70vh;
+#signup-page-right {
+    width: 40%;
+    height: 80vh;
     background-image: url(assets/signup-pic.png);
     background-position: center;
     background-size: contain;
@@ -144,17 +150,52 @@ main {
     /* background-color: yellow; */
 }
 
-.signup-page-right img {
+#signup-page-right img {
     width: 50px;
 }
+
+.pfp-error{
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    font-weight: bold;
+    display: none;
+}
+#signup-page .errors{
+    width: 19vw;
+    /* background-color: yellow; */
+    margin-left: 50%;
+    display: flex;
+    flex-direction: column;
+    font-size: .9vw;
+}
+#signup-page .error{
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    font-weight: bold;
+}
+
+#signup-page .info-error{
+    display: none;
+    /* background-color: yellow; */
+    margin-top: 1%;
+}
+#signup-page .condition-error{
+    display: none;
+    margin-top: 1%;
+}
+#signup-page .verify{
+    display: none;
+    margin-top: 1%;
+}
+
 
 /* signup page complete ho gaya  */
 
 
-.login-page{
-     border-radius: 10px;
+#login-page{
+    border-radius: 10px;
     width: 60%;
-    height: 80%;
+    height: 90%;
     padding: 2% 5%;
     display: flex;
     /* flex-direction: column; */
@@ -163,7 +204,7 @@ main {
     display: none;
 }
 
-.login-page-left{
+#login-page-left{
     width: 50%;
     height: 70vh;
     background-image: url(assets/signup-pic.png);
@@ -179,14 +220,14 @@ main {
 }
 
 
-.login-page-right {
-    width: 50%;
+#login-page-right {
+    width: 60%;
     height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* gap: 50px; */
+    gap: 50px;
     border-bottom: 1px solid #2d4bff;
     border-right: 1px solid #2d4bff;
     border-top: 1px solid #2d4bff;
@@ -196,47 +237,51 @@ main {
     /* background-color: yellow; */
 }
 
-.login-page form {
+#login-page form {
     width: 80%;
-    height: 30vh;
+    height: 40vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     /* background-color: yellowgreen; */
     position: relative;
 }
 
-.login-page-right .info {
+#login-page-right .info {
     font-family: Arial, Helvetica, sans-serif;
     /* background-color: #2D4BFF; */
-    margin-top: 20px;
+    margin-top: 40px;
     width: 100%;
+    width: 25vw;
     display: flex;
+    justify-content: space-between;
+    padding: 0% 11% 0% 10%;
     align-items: center;
     font-weight: bold;
     font-size: 1.2vw;
     justify-content: space-between;
 }
 
-.login-page-right .info input {
+#login-page-right .info input {
     border: none;
     padding: 3% 2%;
     font-size: 0.9vw;
     border-radius: 7px;
 }
 
-.login-page-right .info input:focus {
+#login-page-right .info input:focus {
     outline: none;
     border: 1px solid #2d4bff;
 }
 
-.login-btn {
-    position: absolute;
-    bottom: 5%;
+#login-btn {
+    /* position: absolute; */
+    /* bottom: 0%; */
+    margin-top: 10%;
     background: linear-gradient(to bottom right, #affde4, #ffffff, #affde4);
     border: 1px solid #2d4bff;
-    padding: 2% 7%;
+    padding: 2% 10%;
     font-size: 1vw;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -244,7 +289,29 @@ main {
     cursor: pointer;
 }
 
+#login-page .errors{
+    width: 15vw;
+    /* background-color: yellow; */
+    margin-left: 50%;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    font-weight: bold;
+}
+#login-page .login-required-error{
+    display: none;
+    margin-top: 1%;
+}
 
+#login-page .valid-condition-error{
+    display: none;
+    margin-top: 1%;
+}
+#login-page .both-condition-error{
+    display: none;
+    margin-top: 1%;
+}
 
 
 
@@ -367,7 +434,9 @@ nav img {
     gap: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
+#feature-highlights span i{
+    color: #2d4bff;
+}
 #project-status {
     width: 15%;
     top: 25%;
@@ -388,6 +457,7 @@ nav img {
     /* margin-top: 5%; */
     background: linear-gradient(to bottom right, #affde4, #ffffff, #affde4);
     border: 1px solid #2d4bff;
+    color: #2d4bff;
     padding: 0.8% 2%;
     font-size: 1.3vw;
     font-family: Arial, Helvetica, sans-serif;
