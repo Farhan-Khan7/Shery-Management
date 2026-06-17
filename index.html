@@ -1,30 +1,77 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shery Management</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <main>
 
-      <div class="overlay">
-        <div class="signup-page">
-            
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shery Management</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+  <main>
+    <div class="overlay">
+      <div class="signup-page">
+        <div class="signup-page-left">
+          <form>
+            <div class="profile">
+              <input type="file" id="profile-pic" />
+              <label for="profile-pic" class="upload-btn">Upload Profile Pic</label>
+            </div>
+            <div class="info">
+              <label>Full Name :</label>
+              <input type="text" placeholder="Enter Your Name">
+            </div>
+
+            <div class="info"><label>Email :</label>
+              <input type="email" placeholder="Enter Your Email" />
+            </div>
+
+            <div class="info"> <label>Password :</label>
+              <input type="password" placeholder="Enter Your Password" />
+            </div>
+
+            <div class="info"> <label>Confirm Password :</label>
+              <input type="password" placeholder="Confirm Your Password" />
+            </div>
+
+            <button type="submit" class="signup-btn">Create Profile</button>
+          </form>
+        </div>
+        <div class="signup-page-right">
         </div>
       </div>
 
-      <nav>
-        <img src="assets/Shery-managment-logo.png" alt="" />
-        <div class="user-profile">
-          <h3>How It's Works</h3>
+      <div class="login-page">
+        <div class="login-page-left"></div>
+        <div class="login-page-right">
+          <form>
+            <div class="info"><label>Email :</label>
+              <input type="email" placeholder="Enter Your Email" />
+            </div>
 
-          <!-- <button id="login">
+            <div class="info"> <label>Password :</label>
+              <input type="password" placeholder="Enter Your Password" />
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    
+
+    <nav>
+      <img src="assets/Shery-managment-logo.png" alt="" />
+      <div class="user-profile">
+        <h3>How It's Works</h3>
+
+        <!-- <button id="login">
             <div class="btn-text-wrap">
               <h3 class="btn-text top-text">
                 Login
@@ -38,7 +85,7 @@
             </div>
           </button> -->
 
-          <!-- <button id="signup">
+        <!-- <button id="signup">
             <div class="btn-text-wrap">
               <h3 class="btn-text top-text">
                 SignUp
@@ -51,41 +98,28 @@
               </h3>
             </div>
           </button> -->
-        </div>
-      </nav>
-      <div id="hero">
-        <div id="hero-section-heading">
-          <h1>Shery management software built for</h1>
-          <h1 id="changing-text">You</h1>
-        </div>
-        <div id="feature-highlights">
-          <span><i class="ri-checkbox-circle-line"></i>Plan your tasks</span>
-          <span
-            ><i class="ri-checkbox-circle-line"></i>Track work efficiently</span
-          >
-          <span
-            ><i class="ri-checkbox-circle-line"></i>Boost productivity
-            daily</span
-          >
-        </div>
-
-        <img
-          id="project-status"
-          class="hero-section-image"
-          src="assets/project-status.png"
-          alt=""
-        />
-        <img
-          id="task-progress"
-          class="hero-section-image"
-          src="assets/task-progress.png"
-          alt=""
-        />
-
-        <button id="get-start">Get Started</button>
       </div>
-    </main>
+    </nav>
+    <div id="hero">
+      <div id="hero-section-heading">
+        <h1>Shery management software built for</h1>
+        <h1 id="changing-text">You</h1>
+      </div>
+      <div id="feature-highlights">
+        <span><i class="ri-checkbox-circle-line"></i>Plan your tasks</span>
+        <span><i class="ri-checkbox-circle-line"></i>Track work efficiently</span>
+        <span><i class="ri-checkbox-circle-line"></i>Boost productivity
+          daily</span>
+      </div>
 
-    <script src="script.js"></script>
-  </body>
+      <img id="project-status" class="hero-section-image" src="assets/project-status.png" alt="" />
+      <img id="task-progress" class="hero-section-image" src="assets/task-progress.png" alt="" />
+
+      <button id="get-start">Get Started</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
