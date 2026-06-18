@@ -457,3 +457,36 @@ loginbtn.addEventListener("click", function (eventdets) {
 
 })
 
+
+// All Front Page UI Done
+
+
+const navLinks = document.querySelectorAll("#nav-links");
+
+const addTaskbtn = document.querySelector("#addTask");
+
+const addTaskPage = document.querySelector("#add-task-page");
+const completedTasksPage = document.querySelector("#completed-tasks-page");
+const dashboardPage = document.querySelector("#dashboard-page");
+
+navLinks.forEach((element, id) => {
+    element.addEventListener("click", function (event) {
+
+        addTaskPage.style.display = "none";
+        completedTasksPage.style.display = "none";
+        dashboardPage.style.display = "none";
+
+        if (event.target.id === "home") {
+            heroSection.style.display = "flex"
+        } else if (event.target.id === "addTask") {
+            heroSection.style.display = "none";
+            addTaskPage.style.display = "flex";
+        } else if (event.target.id === "completedTasks") {
+            heroSection.style.display = "none";
+            completedTasksPage.style.display = "flex";
+        } else if (event.target.id === "dashboard") {
+            heroSection.style.display = "none";
+            dashboardPage.style.display = "flex";
+        }
+    })
+})

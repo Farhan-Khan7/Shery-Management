@@ -8,6 +8,7 @@ html,
 body {
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 :root{
 
@@ -436,6 +437,21 @@ nav #dark-mode-logo{
     display: none;
 }
 
+#nav-links{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2vw;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 35vw;
+    /* background-color: rgba(0, 0, 0, 0.378); */
+}
+#nav-links span{
+    cursor: pointer;
+}
+
+
+
 .dark-light-toggle {
     width: 6vh;
     height: 6vh;
@@ -456,13 +472,13 @@ nav #dark-mode-logo{
     position: absolute;
     color: var(--heading-color);
     font-size: 1.3vw;
-    display: none;
+    /* display: none; */
 }
 #light-mode-toggle{
     position: absolute;
     color: var(--heading-color);
     font-size: 1.3vw;
-    /* display: none; */
+    display: none;
 }
 
 /* Navbaar section Completed */
@@ -478,7 +494,6 @@ nav #dark-mode-logo{
     justify-content: center;
     gap: 40px;
     text-align: center;
-    /* background-color: white; */
     background: var(--gradient);
     /* background: linear-gradient(to right, black , #5a5858, black); */
     overflow: hidden;
@@ -495,7 +510,7 @@ nav #dark-mode-logo{
     height: 100%;
     background-image:
         linear-gradient(#158bc62a 1px, transparent 1px),
-        linear-gradient(90deg, #9be7842a 1px, transparent 1px);
+        linear-gradient(90deg, #158bc62a 1px, transparent 1px);
     background-size: 40px 40px;
     pointer-events: none;
     /* z-index: 1; */
@@ -593,4 +608,65 @@ nav #dark-mode-logo{
     font-weight: bold;
     border-radius: 7px;
     cursor: pointer;
+}
+
+/* Hero Section completed */
+
+
+#add-task-page{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    /* display: none; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    text-align: center;
+    background: var(--gradient);
+    background-position: center;
+    transition: all .2s ease;
+    /* background: linear-gradient(to right, black , #5a5858, black); */
+    overflow: hidden;
+    /* z-index: -1; */
+    /* base layer */
+}
+
+
+#completed-tasks-page{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    text-align: center;
+    background-color: yellowgreen;
+    /* background: var(--gradient); */
+    transition: all .2s ease;
+    /* background: linear-gradient(to right, black , #5a5858, black); */
+    overflow: hidden;
+    /* z-index: -1; */
+    /* base layer */
+}
+
+#dashboard-page{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    text-align: center;
+    background-color: yellow;
+    /* background: var(--gradient); */
+    transition: all .2s ease;
+    /* background: linear-gradient(to right, black , #5a5858, black); */
+    overflow: hidden;
+    /* z-index: -1; */
+    /* base layer */
 }
