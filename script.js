@@ -467,14 +467,14 @@ const addTaskbtn = document.querySelector("#addTask");
 
 const addTaskPage = document.querySelector("#add-task-page");
 const completedTasksPage = document.querySelector("#completed-tasks-page");
-const dashboardPage = document.querySelector("#dashboard-page");
+const workflowPage = document.querySelector("#workflow-page");
 
 navLinks.forEach((element, id) => {
     element.addEventListener("click", function (event) {
 
         addTaskPage.style.display = "none";
         completedTasksPage.style.display = "none";
-        dashboardPage.style.display = "none";
+        workflowPage.style.display = "none";
 
         if (event.target.id === "home") {
             heroSection.style.display = "flex"
@@ -486,14 +486,14 @@ navLinks.forEach((element, id) => {
             completedTasksPage.style.display = "flex";
         } else if (event.target.id === "dashboard") {
             heroSection.style.display = "none";
-            dashboardPage.style.display = "flex";
+            workflowPage.style.display = "flex";
         }
     })
 })
 
 
 const taskShowSection = document.querySelector("#task-show-section")
-const tasksList = document.querySelector("#tasks")
+// const tasksList = document.querySelector("#tasks")
 const singleTask = document.querySelector(".task")
 const addTaskForm = document.querySelector("#new-task-form");
 const newTask = document.querySelector("#new-task-input");
@@ -512,7 +512,7 @@ function renderTasks() {
     tasks.forEach(function (task) {
 
         taskShowSection.innerHTML += `
-            <div id="tasks">
+            <div id="tasks" data-id="${task.id}">
                 <div class="task">
                     <div class="content">
                         <input
@@ -528,10 +528,10 @@ function renderTasks() {
                         <span>${task.tag}</span>
                     </div>
                     <div class="actions">
-              <button class="edit"><i class="ri-pencil-ai-line"></i></button>
-              <button class="complete"><i class="ri-checkbox-circle-line"></i></button>
-              <button class="delete"><i class="ri-delete-bin-3-line"></i></button>
-            </div>
+                        <button class="edit"><i class="ri-pencil-ai-line"></i></button>
+                        <button class="complete"><i class="ri-checkbox-circle-line"></i></button>
+                        <button class="delete"><i class="ri-delete-bin-3-line"></i></button>
+                    </div>
                 </div>
             </div>
         `;
@@ -549,9 +549,11 @@ taskAddBtn.addEventListener("click", function (details) {
     details.preventDefault()
 
     let taskdetails = {
+        id: Date.now(),
         taskdesc: newTask.value,
         priority: taskPriority.value,
-        tag: taskTag.value
+        tag: taskTag.value,
+        completed: false
     }
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
@@ -569,12 +571,61 @@ taskAddBtn.addEventListener("click", function (details) {
 // Task ui renderi and creating done 
 
 
+
+const completedTashShow = document.querySelector("#complete-task")
+
+function completedrenderTasks() {
+
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    taskShowSection.innerHTML = "";
+
+    tasks.forEach(function (task) {
+
+        if(task.completed){
+            completedTashShow.innerHTML += `
+            <div id="tasks" data-id="${task.id}">
+                <div class="task">
+                    <div class="content">
+                        <input
+                            type="text"
+                            class="text"
+                            value="${task.taskdesc}"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="tags">
+                        <span>${task.priority}</span>
+                        <span>${task.tag}</span>
+                    </div>
+                    <div class="actions">
+                        <button class="delete"><i class="ri-delete-bin-3-line"></i></button>
+                    </div>
+                </div>
+            </div>
+        `;
+        }
+
+    });
+
+}
+
+completedrenderTasks()
+
+
+// complete button code done 
+
 taskShowSection.addEventListener("click", function (details) {
 
+
     if (details.target.closest(".edit")) {
-        const taskCard = event.target.closest(".task");
+        const taskList = details.target.closest("#tasks");
+        const taskCard = details.target.closest(".task");
         const editTask = taskCard.querySelector(".text");
-        const editBtn = event.target.closest(".edit");
+        const editBtn = details.target.closest(".edit");
+        const completeBtn = details.target.closest(".complete");
+        const deleteBtn = details.target.closest(".delete");
 
         if (editTask.readOnly) {
             editBtn.innerHTML = '<i class="ri-check-double-line"></i>';
@@ -583,15 +634,79 @@ taskShowSection.addEventListener("click", function (details) {
 
         } else {
             editBtn.innerHTML = '<i class="ri-pencil-ai-line"></i>';
-            editTask.setAttribute("readonly");
+            editTask.setAttribute("readonly", true);
+
+            const taskId = Number(taskList.dataset.id);
+
+            const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            const task = tasks.find(function (task) {
+                return task.id === taskId
+
+            })
+
+            task.taskdesc = editTask.value;
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+
         }
+    } else if (details.target.closest(".complete")) {
+        const taskList = details.target.closest("#tasks");
+        const taskId = Number(taskList.dataset.id);
+
+        const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        const task = tasks.find(function (task) {
+            return task.id === taskId
+        })
+
+        task.completed = true;
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+
+        renderTasks();
+        completedrenderTasks()
 
     }
 
-        // else if (details.target.closest(".complete")) {
-        //     console.log("Complete")
-        // } else if (details.target.closest(".delete")) {
-        //     console.log("delete")
-        // }
+})
 
-    })
+
+function renderTasks() {
+
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    taskShowSection.innerHTML = "";
+
+    tasks.forEach(function (task) {
+
+        if(!task.completed){
+            taskShowSection.innerHTML += `
+            <div id="tasks" data-id="${task.id}">
+                <div class="task">
+                    <div class="content">
+                        <input
+                            type="text"
+                            class="text"
+                            value="${task.taskdesc}"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="tags">
+                        <span>${task.priority}</span>
+                        <span>${task.tag}</span>
+                    </div>
+                    <div class="actions">
+                        <button class="edit"><i class="ri-pencil-ai-line"></i></button>
+                        <button class="complete"><i class="ri-checkbox-circle-line"></i></button>
+                        <button class="delete"><i class="ri-delete-bin-3-line"></i></button>
+                    </div>
+                </div>
+            </div>
+        `;
+        }
+
+    });
+
+}
+
+renderTasks()
+
+
