@@ -490,3 +490,108 @@ navLinks.forEach((element, id) => {
         }
     })
 })
+
+
+const taskShowSection = document.querySelector("#task-show-section")
+const tasksList = document.querySelector("#tasks")
+const singleTask = document.querySelector(".task")
+const addTaskForm = document.querySelector("#new-task-form");
+const newTask = document.querySelector("#new-task-input");
+const taskPriority = document.querySelector("#task-priority");
+const taskTag = document.querySelector("#task-tag");
+
+const taskAddBtn = document.querySelector("#submit");
+
+
+function renderTasks() {
+
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    taskShowSection.innerHTML = "";
+
+    tasks.forEach(function (task) {
+
+        taskShowSection.innerHTML += `
+            <div id="tasks">
+                <div class="task">
+                    <div class="content">
+                        <input
+                            type="text"
+                            class="text"
+                            value="${task.taskdesc}"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="tags">
+                        <span>${task.priority}</span>
+                        <span>${task.tag}</span>
+                    </div>
+                    <div class="actions">
+              <button class="edit"><i class="ri-pencil-ai-line"></i></button>
+              <button class="complete"><i class="ri-checkbox-circle-line"></i></button>
+              <button class="delete"><i class="ri-delete-bin-3-line"></i></button>
+            </div>
+                </div>
+            </div>
+        `;
+
+    });
+
+}
+
+renderTasks()
+// task UI render ho raha hai 
+
+
+
+taskAddBtn.addEventListener("click", function (details) {
+    details.preventDefault()
+
+    let taskdetails = {
+        taskdesc: newTask.value,
+        priority: taskPriority.value,
+        tag: taskTag.value
+    }
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    tasks.push(taskdetails);
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+
+    renderTasks()
+
+
+})
+
+
+// Task ui renderi and creating done 
+
+
+taskShowSection.addEventListener("click", function (details) {
+
+    if (details.target.closest(".edit")) {
+        const taskCard = event.target.closest(".task");
+        const editTask = taskCard.querySelector(".text");
+        const editBtn = event.target.closest(".edit");
+
+        if (editTask.readOnly) {
+            editBtn.innerHTML = '<i class="ri-check-double-line"></i>';
+            editTask.removeAttribute("readonly");
+            editTask.focus();
+
+        } else {
+            editBtn.innerHTML = '<i class="ri-pencil-ai-line"></i>';
+            editTask.setAttribute("readonly");
+        }
+
+    }
+
+        // else if (details.target.closest(".complete")) {
+        //     console.log("Complete")
+        // } else if (details.target.closest(".delete")) {
+        //     console.log("delete")
+        // }
+
+    })

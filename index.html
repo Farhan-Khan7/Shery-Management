@@ -115,8 +115,8 @@
     <nav id="navbar">
       <img id="light-mode-logo" src="assets/light-mode-logo.png" alt="" />
       <img id="dark-mode-logo" src="assets/dark-mode-logo.png" alt="" />
-      
-       <div id="nav-links">
+
+      <div id="nav-links">
         <span id="home">Home</span>
         <span id="addTask">Add Task</span>
         <span id="completedTasks">Completed Tasks</span>
@@ -157,7 +157,7 @@
           </button> -->
       </div>
 
-     
+
 
     </nav>
     <div id="hero">
@@ -181,9 +181,82 @@
 
       <button id="get-start">Get Started</button>
     </div>
+    <!-- Hero Section Done -> Home Section -->
 
 
-    <div id="add-task-page"></div>
+    <div id="add-task-page">
+      <section id="task-add-section">
+        <h1>Create & Manage Task</h1>
+        <form id="new-task-form">
+          <div class="info">
+            <label for="new-task-input">Task</label>
+            <input type="text" id="new-task-input" placeholder="What do you have planed">
+          </div>
+
+          <div class="info">
+            <label for="task-priority">Priority</label>
+
+            <select id="task-priority">
+              <option selected disabled>Select Priority</option>
+              <option value="high">🔴 High</option>
+              <option value="medium">🟡 Medium</option>
+              <option value="low">🟢 Low</option>
+            </select>
+          </div>
+
+          <div class="info">
+            <label for="task-tag">Category</label>
+
+            <select id="task-tag">
+              <option value="" selected disabled>Select Category</option>
+              <option value="work">💼 Work</option>
+              <option value="project">🚀 Project</option>
+              <option value="learning">📚 Learning</option>
+              <option value="meeting">🤝 Meeting</option>
+              <option value="personal">🏠 Personal</option>
+              <option value="health">💪 Health & Fitness</option>
+              <option value="finance">💰 Finance</option>
+              <option value="shopping">🛒 Shopping</option>
+            </select>
+          </div>
+
+          <input id="submit" type="submit" value="ADD TASK">
+
+        </form>
+      </section>
+      <section id="task-show-section">
+        <h2>Acitve Tasks List</h2>
+        <!-- <div id="tasks">
+          <div class="task">
+            <div class="content">
+              <input type="text" class="text" value="A new task" readonly>
+            </div>
+            <div class="tags">
+              <span id="priority">Priority</span>
+              <span id="tag">Tag</span>
+            </div>
+            <div class="actions">
+              <button id="edit"><i class="ri-pencil-ai-line"></i></button>
+              <button id="complete"><i class="ri-checkbox-circle-line"></i></button>
+              <button id="delete"><i class="ri-delete-bin-3-line"></i></button>
+            </div>
+          </div>
+        </div> -->
+
+
+      </section>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
     <div id="completed-tasks-page"></div>
     <div id="dashboard-page"></div>
   </main>
