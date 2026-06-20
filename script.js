@@ -909,10 +909,6 @@ const quotes = [
         author: "Brian Tracy"
     },
     {
-        quote: "Internal growth always appears before external success.",
-        author: "Farhan Khan"
-    },
-    {
         quote: "My Internal Wealth Will Definitely Create My External Wealth...",
         author: "Farhan Khan"
     }
